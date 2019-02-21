@@ -30,10 +30,10 @@ html(lang="en")
           ul.nav.navbar-nav
             li
               a(href='/') Home
-            li
-              a(href='/accounts') Accounts
-            li
-              a(href='/tx/pending') Pending Tx
+            //- li
+            //-   a(href='/accounts') Accounts
+            //- li
+            //-   a(href='/tx/pending') Pending Tx
             li.dropdown
               a.dropdown-toggle(href='#', data-toggle='dropdown', role='button', aria-haspopup='true', aria-expanded='false')
                 | Tools
@@ -64,5 +64,5 @@ html(lang="en")
       hr
       footer
         p  
-          a(href="https://github.com/gobitfly/etherchain-light") XinFin Explorer
+          a(href="#") XinFin Explorer
           |  | #{nodeStatus.version} | #{nodeStatus.nbrPeers} Peers connected

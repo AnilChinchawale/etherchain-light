@@ -1,7 +1,7 @@
 # XinFin Light Explorer
 
 
-Etherchain Light is an Ethereum blockchain explorer built with NodeJS, Express and Parity. It does not require an external database and retrieves all information on the fly from a backend Ethereum node.
+XinFin Light is an XinFin MasterNode blockchain explorer built with NodeJS, Express and XinFin-XDC-Client. It does not require an external database and retrieves all information on the fly from a backend XinFin Master Node.
 
 While there are several excellent Ethereum blockchain explorers available (etherscan, ether.camp and etherchain) they operate on a fixed subset of Ethereum networks, usually the mainnet and testnet. Currently there are no network agnostic blockchain explorers available. If you want to develop Dapps on a private testnet or would like to launch a private / consortium network, Etherchain Light will allow you to quickly explore such chains.
 

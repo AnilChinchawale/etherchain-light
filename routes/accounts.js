@@ -8,10 +8,11 @@ router.get('/:offset?', function(req, res, next) {
   var config = req.app.get('config');  
   var web3 = new Web3();
   web3.setProvider(config.provider);
+  console.log(web3.personal)
   
   async.waterfall([
     function(callback) {
-      web3.parity.listAccounts(20, req.params.offset, function(err, result) {
+      web3.personal.listAccounts(20, req.params.offset, function(err, result) {
         callback(err, result);
       });
     }, function(accounts, callback) {
