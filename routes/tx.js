@@ -14,7 +14,7 @@ router.get('/pending', function(req, res, next) {
   
   async.waterfall([
     function(callback) {
-      web3.parity.pendingTransactions(function(err, result) {
+      web3.eth.pendingTransactions(function(err, result) {
         callback(err, result);
       });
     }
