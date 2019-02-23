@@ -79,7 +79,7 @@ router.get('/:tx', function(req, res, next) {
         callback(err, result, receipt);
       });
     }, function(tx, receipt, callback) {  
-      web3.trace.transaction(tx.hash, function(err, traces) {
+      web3.eth.getTransaction(tx.hash, function(err, traces) {
         callback(err, tx, receipt, traces);
       });
     }, function(tx, receipt, traces, callback) {
@@ -107,18 +107,18 @@ router.get('/:tx', function(req, res, next) {
     tx.traces = [];
     tx.failed = false;
     tx.gasUsed = 0;
-    if (traces != null) {
-    traces.forEach(function(trace) {
-        tx.traces.push(trace);
-        if (trace.error) {
-          tx.failed = true;
-          tx.error = trace.error;
-        }
-        if (trace.result && trace.result.gasUsed) {
-          tx.gasUsed += parseInt(trace.result.gasUsed, 16);
-        }
-      });
-    }
+    // if (traces != null) {
+    // traces.forEach(function(trace) {
+    //     tx.traces.push(trace);
+    //     if (trace.error) {
+    //       tx.failed = true;
+    //       tx.error = trace.error;
+    //     }
+    //     if (trace.result && trace.result.gasUsed) {
+    //       tx.gasUsed += parseInt(trace.result.gasUsed, 16);
+    //     }
+    //   });
+    // }
     // console.log(tx.traces);    
     res.render('tx', { tx: tx });
   });
@@ -137,7 +137,7 @@ router.get('/raw/:tx', function(req, res, next) {
         callback(err, result);
       });
     }, function(result, callback) {
-      web3.trace.replayTransaction(result.hash, ["trace", "stateDiff", "vmTrace"], function(err, traces) {
+      web3.eth.getTransactionReceipt(result.hash,function(err, traces) {
         callback(err, result, traces);
       });
     }
