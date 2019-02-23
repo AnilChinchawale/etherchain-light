@@ -19,11 +19,15 @@ router.get('/:block', function(req, res, next) {
       if (!result) {
         return next({name : "BlockNotFoundError", message : "Block not found!"});
       }
-      web3.trace.block(result.number, function(err, traces) {
+      web3.eth.getBlock(result.number, function(err, traces) {
+        // console.log(err)
         callback(err, result, traces);
       });
     }
-  ], function(err, block, traces) {
+  ], function(err, block, block) {
+    console.log(`Err :- ${err} In Block.js`)
+    // console.log(`Block :- ${block.transaction} In Block.js`)
+    // console.log(`Trace :- ${traces} In Block.js`)
     if (err) {
       return next(err);
     }
@@ -31,17 +35,17 @@ router.get('/:block', function(req, res, next) {
     block.transactions.forEach(function(tx) {
       tx.traces = [];
       tx.failed = false;
-      if (traces != null) {
-        traces.forEach(function(trace) {
-          if (tx.hash === trace.transactionHash) {
-            tx.traces.push(trace);
-            if (trace.error) {
-              tx.failed = true;
-              tx.error = trace.error;
-            }
-          }
-        });
-      }
+      // if (traces != null) {
+      //   traces.forEach(function(trace) {
+      //     if (tx.hash === trace.transactionHash) {
+      //       tx.traces.push(trace);
+      //       if (trace.error) {
+      //         tx.failed = true;
+      //         tx.error = trace.error;
+      //       }
+      //     }
+      //   });
+      // }
       // console.log(tx);
     });
     res.render('block', { block: block });
