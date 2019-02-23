@@ -18,10 +18,10 @@ block content
       td Parent hash: 
       td 
         a(href="/block/" + block.parentHash) #{block.parentHash}
-    tr
-      td Miner: 
-      td  
-        a(href="/account/" + block.author) #{nameformatter.format(block.author)}
+    //- tr
+    //-   td Miner: 
+    //-   td  
+    //-     a(href="/account/" + block.author) #{nameformatter.format(block.author)}
     tr
       td Gas Limit:
       td #{numeral(block.gasLimit).format()}
