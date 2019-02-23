@@ -3,10 +3,10 @@ var net = require('net');
 
 var config = function () {
   
-  this.logFormat = "combined";
+  this.logFormat = "dev";
   // this.ipcPath = process.env["HOME"] + "/.local/share/io.parity.ethereum/jsonrpc.ipc";
   // this.provider = new web3.providers.IpcProvider(this.ipcPath, net);
-  this.rpcPath = "http://localhost:8545";
+  this.rpcPath = "https://testnet.xinfin.network";
   this.provider = new web3.providers.HttpProvider(this.rpcPath);
 
   
