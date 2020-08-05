@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "pm2 start ./bin/www --name XDCScanLite",
+    "dev": "nodemon ./bin/www"
   },
   "dependencies": {
     "abi-decoder": "^1.0.9",
@@ -26,7 +27,7 @@
     "solc": "^0.4.9",
     "string-similarity": "^1.1.0",
     "tmp": "0.0.31",
-    "web3": "^0.20.7",
+    "xdc3": "^0.20.8",
     "yargs": "^7.0.1"
   }
 }
