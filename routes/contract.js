@@ -6,8 +6,15 @@ var exec = require('child_process').exec;
 var tmp = require('tmp');
 var fs = require('fs');
 var Web3 = require('xdc3');
+let axios = require('axios')
 
-var versions = JSON.parse(fs.readFileSync('./utils/solc-bin/bin/list.json')).builds.reverse();
+let getVerions = async()=>{
+  
+let versions = await axios.get('https://raw.githubusercontent.com/ethereum/solc-bin/gh-pages/bin/list.json')
+return versions;
+}
+let versions = getVerions()
+// var versions = JSON.parse(fs.readFileSync('./utils/solc-bin/bin/list.json')).builds.reverse();
 
 router.get('/verify', function(req, res, next) {  
   res.render('verifyContract', { versions: versions });
