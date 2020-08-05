@@ -5,7 +5,7 @@ var stringSimilarity = require('string-similarity');
 var exec = require('child_process').exec;
 var tmp = require('tmp');
 var fs = require('fs');
-var Web3 = require('web3');
+var Web3 = require('xdc3');
 
 var versions = JSON.parse(fs.readFileSync('./utils/solc-bin/bin/list.json')).builds.reverse();
 

@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var async = require('async');
-var Web3 = require('web3');
+var Web3 = require('xdc3');
 
 router.get('/:block', function(req, res, next) {
   

@@ -1,5 +1,5 @@
 var async = require('async');
-var Web3 = require('web3');
+var Web3 = require('xdc3');
 
 var nodeStatus = function(config) {
   var self = this;
