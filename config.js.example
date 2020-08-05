@@ -1,4 +1,4 @@
-var web3 = require('web3');
+var web3 = require('xdc3');
 var net = require('net');
 
 var config = function () {
